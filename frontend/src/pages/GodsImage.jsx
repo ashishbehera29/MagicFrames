@@ -14,14 +14,11 @@ const godsList = [
 
 const GodsImage = () => {
   const { height, width, numGods, frameStyle, selectedGods, setSelectedGods } = useContext(FrameContext);
-
-  // Handle drag start
   const handleDragStart = (e, godSrc, fromIndex) => {
     e.dataTransfer.setData("godSrc", godSrc);
     e.dataTransfer.setData("fromIndex", fromIndex);
   };
 
-  // Handle drop and remove from old partition
   const handleDrop = (e, newIndex) => {
     e.preventDefault();
     const godSrc = e.dataTransfer.getData("godSrc");
@@ -39,18 +36,14 @@ const GodsImage = () => {
       <Navbar />
       <div className="flex flex-grow">
         <Sidebar />
-
-        {/* Main Content */}
         <div className="flex flex-grow p-6">
-          {/* Frame Preview Section */}
           <div className="flex flex-col items-center flex-grow">
             <h2 className="mb-4 text-2xl font-bold text-gray-900 bg-white px-6 py-2 rounded-lg shadow-md">
               Gods Selection
             </h2>
             <div
               className="relative p-4 bg-white border border-black shadow-xl rounded-lg"
-              style={{ height: `${height * 10}px`, width: `${width * 10}px` }}
-            >
+              style={{ height: `${height * 10}px`, width: `${width * 10}px` }}>
               {frameStyle && (
                 <img
                   src={frameStyle}
@@ -59,8 +52,6 @@ const GodsImage = () => {
                   style={{ height: "100%", width: "100%", objectFit: "fill", zIndex: 10 }}
                 />
               )}
-
-              {/* Frame Partitions */}
               <div
                 className="bg-white flex flex-wrap p-2 relative"
                 style={{
@@ -70,8 +61,7 @@ const GodsImage = () => {
                   gridTemplateColumns: `repeat(${numGods}, 1fr)`,
                   gap: "8px",
                   zIndex: 5,
-                }}
-              >
+                }}>
                 {Array.from({ length: numGods }).map((_, index) => (
                   <div
                     key={index}
@@ -84,7 +74,6 @@ const GodsImage = () => {
                     draggable={selectedGods[index] ? "true" : "false"}
                     onDragStart={(e) => selectedGods[index] && handleDragStart(e, selectedGods[index], index)}
                   >
-                    {/* Display Dropped God Image */}
                     {selectedGods[index] && (
                       <img
                         src={selectedGods[index]}
@@ -103,7 +92,6 @@ const GodsImage = () => {
             </div>
           </div>
 
-          {/* Gods Selection Section */}
           <div className="h-145 ml-7 flex flex-col justify-center items-center space-y-1 bg-white p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold text-blue-900 mb-10">Select Gods Img <br />Drag & Drop</h2>
             {godsList.map((god, index) => (

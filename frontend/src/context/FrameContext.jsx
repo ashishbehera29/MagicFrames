@@ -8,14 +8,13 @@ export const FrameProvider = ({ children }) => {
   const [numGods, setNumGods] = useState(0);
   const [frameStyle, setFrameStyle] = useState(null);
   const [selectedGods, setSelectedGods] = useState([]); 
-  const [selectedBackground, setSelectedBackground] = useState(null);// Stores gods with positions // Store selected frame style
+  const [selectedBackground, setSelectedBackground] = useState(null);
 
   return (
     <FrameContext.Provider value={{ 
       height, width, numGods, setHeight, setWidth, setNumGods, 
-      frameStyle, setFrameStyle, selectedGods, setSelectedGods , selectedBackground, // ✅ Provide it in context
-      setSelectedBackground,  // Provide frameStyle state
-    }}>
+      frameStyle, setFrameStyle, selectedGods, setSelectedGods , selectedBackground, 
+      setSelectedBackground}}>
       {children}
     </FrameContext.Provider>
   );

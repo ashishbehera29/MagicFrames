@@ -24,14 +24,10 @@ const Addons = () => {
       <Navbar />
       <div className="flex flex-grow overflow-hidden relative">
         <Sidebar />
-
-        {/* Frame Preview Section */}
         <div className="mt-6 flex flex-grow justify-center relative">
           <div
             className="relative p-4 bg-white rounded-lg shadow-lg"
-            style={{ height: `${height * 10}px`, width: `${width * 10}px` }}
-          >
-            {/* Background Image */}
+            style={{ height: `${height * 10}px`, width: `${width * 10}px` }}>
             {selectedBackground && (
               <img
                 src={selectedBackground}
@@ -40,8 +36,6 @@ const Addons = () => {
                 style={{ height: "100%", width: "100%", objectFit: "cover", zIndex: 1 }}
               />
             )}
-
-            {/* Gods Images */}
             <div
               className="absolute top-0 left-0 w-full h-full grid p-6"
               style={{
@@ -58,7 +52,6 @@ const Addons = () => {
               ))}
             </div>
 
-            {/* Lamps Between Gods */}
             {selectedLamp && selectedGods.length > 1 && (
               <div className="absolute top-[55%] left-0 flex justify-center w-full transform -translate-y-1/2 z-15">
                 {Array.from({ length: selectedGods.length - 1 }).map((_, index) => (
@@ -78,7 +71,6 @@ const Addons = () => {
               </div>
             )}
 
-            {/* Frame Style */}
             {frameStyle && (
               <img
                 src={frameStyle}
@@ -88,14 +80,13 @@ const Addons = () => {
               />
             )}
 
-            {/* Corner Design */}
             {showCorners && (
               <>
                 {(() => {
                   const cornerWidth = Math.min(height, width) * 4;
                   const cornerHeight = height * 5.7;
-                  const offsetX = cornerWidth * 0.0;
-                  const offsetY = cornerHeight * 0.15;
+                  const offsetX = cornerWidth * -0.2;
+                  const offsetY = cornerHeight * 0.13;
 
                   return (
                     <>
@@ -111,12 +102,10 @@ const Addons = () => {
           </div>
         </div>
 
-        {/* Right Side Panel */}
         <div className="w-1/5 p-4 bg-white shadow-lg">
           <button 
             className="w-full py-3 mb-3 font-bold text-lg border-b bg-purple-200 hover:bg-purple-300 rounded-lg transition-all duration-200"
-            onClick={() => setActiveTab(activeTab === "background" ? null : "background")}
-          >
+            onClick={() => setActiveTab(activeTab === "background" ? null : "background")}>
             Select Background
           </button>
           {activeTab === "background" && (
@@ -127,8 +116,7 @@ const Addons = () => {
                   src={bg} 
                   alt={`Background ${index + 1}`} 
                   className="w-28 h-28 cursor-pointer border-2 border-gray-300 hover:border-purple-500 rounded-lg shadow-md hover:scale-105 transition-all duration-200" 
-                  onClick={() => setSelectedBackground(bg)} 
-                />
+                  onClick={() => setSelectedBackground(bg)} />
               ))}
             </div>
           )}
@@ -156,8 +144,7 @@ const Addons = () => {
 
           <button 
             className="w-full py-3 font-bold text-lg border-b bg-purple-200 hover:bg-purple-300 rounded-lg transition-all duration-200"
-            onClick={() => setShowCorners(!showCorners)}
-          >
+            onClick={() => setShowCorners(!showCorners)}>
             {showCorners ? "Remove Corners" : "Apply Corners"}
           </button>
         </div>

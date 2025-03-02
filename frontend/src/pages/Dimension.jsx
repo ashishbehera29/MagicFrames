@@ -26,15 +26,10 @@ const Dimension = () => {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-gradient-to-br from-purple-200 to-purple-300">
-      {/* Top Navbar */}
       <Navbar />
-
-      {/* Main Content: Sidebar + Frame Input Section + Frame Preview */}
       <div className="flex flex-grow overflow-hidden relative">
-        {/* Sidebar (Fixed Width) */}
         <Sidebar />
 
-        {/* Input Fields (Top Right) */}
         <div className="absolute h-190 ml-300 w-1/4 p-4 bg-white shadow-lg">
           <div className="flex flex-col space-y-3">
             <label className="text-m font-semibold">
@@ -69,21 +64,16 @@ const Dimension = () => {
           </div>
         </div>
 
-        {/* Frame Preview Section */}
         <div className="flex-grow flex flex-col items-center justify-center p-6">
-          {/* Title Above Preview */}
           <h2 className="mr-80 mb-10 text-2xl font-bold text-gray-900 bg-white px-6 py-2 rounded-lg shadow-md">
             Dimension Section
           </h2>
-
-          {/* Frame Preview */}
           <div 
             className="mr-80 flex bg-white border border-black justify-center p-4 max-h-[80vh] overflow-hidden shadow-xl rounded-lg"
             style={{ 
               height: `${height * 10}px`, 
               width: `${width * 10}px`,
-            }}
-          >
+            }}>
             <div className="w-full flex gap-4">
               {Array.from({ length: numGods }).map((_, index) => (
                 <div key={index} 

@@ -17,35 +17,26 @@ const Frame = () => {
 
   return (
     <div className="h-screen flex flex-col bg-gradient-to-br from-purple-200 to-purple-300 overflow-hidden">
-      {/* Navbar at the Top */}
       <Navbar />
-
       <div className="flex flex-grow">
-        {/* Sidebar on the Left */}
         <Sidebar />
-
-        {/* Main Content */}
         <div className="flex flex-grow p-6">
-          {/* Frame Preview Section */}
           <div className="flex flex-col items-center flex-grow">
             <h2 className="mb-4 text-2xl font-bold text-gray-900 bg-white px-6 py-2 rounded-lg shadow-md">
               Frame Selection
             </h2>
             <div
               className="relative p-4 bg-white border border-black shadow-xl rounded-lg"
-              style={{ height: `${height * 10}px`, width: `${width * 10}px` }}
-            >
-              {/* Frame Border Overlay */}
+              style={{ height: `${height * 10}px`, width: `${width * 10}px` }}>
               {frameStyle && (
                 <img
                   src={frameStyle}
                   alt="Selected Frame"
                   className="absolute inset-0 pointer-events-none"
-                  style={{ height: "100%", width: "100%", objectFit: "fill", zIndex: 10 }}
-                />
+                  style={{ height: "100%", width: "100%", objectFit: "fill", zIndex: 10 }}/>
               )}
 
-              {/* Main Frame Container with Partitions */}
+             
               <div
                 className="bg-white flex flex-wrap p-2 relative"
                 style={{
@@ -67,8 +58,6 @@ const Frame = () => {
               </div>
             </div>
           </div>
-
-          {/* Frame Selection Section on the Right */}
           <div className="h-140 ml-7 flex flex-col justify-center items-center space-y-1 bg-white p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold text-blue-900 mb-10">Select Frames</h2>
             {frameStyles.map((style, index) => (
